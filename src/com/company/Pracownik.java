@@ -16,6 +16,9 @@ public class Pracownik extends Osoba {
 
     private double pensja;
     private Stanowisko stanowisko;
+    public Stanowisko getStanowisko() {
+        return stanowisko;
+    }
 
     public Pracownik(String imie, String nazwisko, Stanowisko stanowisko, double pensja) {
         super(imie, nazwisko);

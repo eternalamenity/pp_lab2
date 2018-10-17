@@ -1,11 +1,16 @@
 package com.company;
 
+import com.company.Pracownik.Stanowisko;
+
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Firma implements Iterable<Pracownik> {
     private List<Pracownik> pracownicy;
 
+    public Firma() { pracownicy = new ArrayList<>(); }
     public Firma(List<Pracownik> pracownicy) {
         this.pracownicy = pracownicy;
     }
@@ -36,5 +41,9 @@ public class Firma implements Iterable<Pracownik> {
         return pracownicy.iterator();
     }
 
-
+    public Iterator iterator(Stanowisko stanowisko) {
+        Stream<Pracownik> lista = pracownicy.stream()
+                .filter(p -> p.getStanowisko() == stanowisko);
+        return lista.iterator();
+    }
 }
